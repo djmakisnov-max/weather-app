@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Погода</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body class="bg-day-clear">
+  <div class="container">
+    <header class="header">
+      <h1 class="app-title">☀️ Погода</h1>
+      <div class="search-box">
+        <input type="text" id="search-input" class="search-input"
+               placeholder="Введите город..." autocomplete="off" spellcheck="false">
+        <ul id="suggestions" class="suggestions hidden"></ul>
+      </div>
+    </header>
+
+    <div id="loader" class="loader hidden">
+      <div class="spinner"></div>
+      <p>Загрузка...</p>
+    </div>
+
+    <div id="error-block" class="error-block hidden">
+      <p id="error-message">Не удалось загрузить данные.</p>
+      <button id="retry-btn" class="retry-btn">Повторить</button>
+    </div>
+
+    <main id="weather-content" class="weather-content hidden">
+      <section class="card current-card">
+        <h2 id="city-name" class="city-name"></h2>
+        <p id="current-date" class="current-date"></p>
+        <div class="current-main">
+          <span id="current-icon" class="current-icon"></span>
+          <span id="current-temp" class="current-temp"></span>
+        </div>
+        <p id="current-desc" class="current-desc"></p>
+        <div class="metrics">
+          <div class="metric">
+            <span class="metric-label">Ощущается как</span>
+            <span id="feels-like" class="metric-value"></span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Влажность</span>
+            <span id="humidity" class="metric-value"></span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Ветер</span>
+            <span id="wind" class="metric-value"></span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Давление</span>
+            <span id="pressure" class="metric-value"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3 class="section-title">Почасовой прогноз</h3>
+        <div id="hourly-list" class="hourly-list"></div>
+      </section>
+
+      <section class="card">
+        <h3 class="section-title">Прогноз на 7 дней</h3>
+        <div id="daily-list" class="daily-list"></div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
